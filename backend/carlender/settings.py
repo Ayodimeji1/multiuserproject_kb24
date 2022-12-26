@@ -93,12 +93,17 @@ DATABASES = {
 }
 
 
-REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+# }
 
 
 REST_FRAMEWORK = {
+     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+     'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
         
@@ -107,8 +112,8 @@ REST_FRAMEWORK = {
     # 'DEFAULT_AUTHENTICATION_CLASSES': [
     #     'rest_framework_simplejwt.authentication.JWTAuthentication',
     # ]
-    'DEFAULT_PAGINATION_CLASS':'vehicle.pagination.CustomPagination',
-    'PAGE_SIZE':1
+    # 'DEFAULT_PAGINATION_CLASS':'vehicle.pagination.CustomPagination',
+    # 'PAGE_SIZE':10
 }
 
 # Password validation

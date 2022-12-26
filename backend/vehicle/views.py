@@ -2,39 +2,29 @@ from .models import Booking, BookingItems, Motor, Brand, MotorRating
 from .serializers import BookingItemsSerializer, BookingSerializer, MotorSerializer, MotorDetailSerializer, BrandSerializer, MotorRatingSerializer
 from rest_framework import generics, viewsets
 from django_filters import rest_framework as filters
-from rest_framework import filters 
+# from rest_framework import filters 
 
-# from django_filters import FilterSet, AllValuesFilter, DateTimeFilter
-from django_filters.rest_framework import DjangoFilterBackend
-
-
+# from django_filters import FilterSet, DateTimeFilter
+# from django_filters.rest_framework import DjangoFilterBackend
 
 
-# class MotorFilter(filters.FilterSet):
-#     available_from = filters.DateTimeFilter(field_name='available_from', lookup_expr='gte')
-#     available_end = filters.DateTimeFilter(field_name='available_end', lookup_expr='lte')
-
-#     class Meta:
-#         model = Motor
-#         fields = ['name'] 
 
 
-# class MotorListView(generics.ListAPIView):
+class MotorFilter(filters.FilterSet):
+    available_from = filters.DateTimeFilter(field_name='available_from', lookup_expr='gte')
+    available_end = filters.DateTimeFilter(field_name='available_end', lookup_expr='lte')
+
+    class Meta:
+        model = Motor 
+        fields = ['name'] 
+
+
+# class MotorListView(generics.ListCreateAPIView):
 class MotorListView(viewsets.ModelViewSet):
     queryset = Motor.objects.all()
-    serializer_class = MotorSerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ('name','pick_up_location',)
-
-    # filter_backends = (filters.DjangoFilterBackend,)
-    # filterset_class = MotorFilter
-
-
-    # filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    # filterset_class = MotorFilter
-    # filter_backends = (filters.DjangoFilterBackend)
-    # filterset_fields = ('name',) 
-    # ordering_fields = ('price',)
+    serializer_class = MotorSerializer 
+    filter_backends = (filters.DjangoFilterBackend,)   
+    filterset_class = MotorFilter
   
 
 
