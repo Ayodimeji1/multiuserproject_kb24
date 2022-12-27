@@ -19,27 +19,23 @@ class MotorFilter(filters.FilterSet):
         fields = ['name'] 
 
 
-# class MotorListView(generics.ListCreateAPIView):
 class MotorListView(viewsets.ModelViewSet):
     queryset = Motor.objects.all()
     serializer_class = MotorSerializer 
     filter_backends = (filters.DjangoFilterBackend,)   
     filterset_class = MotorFilter
-  
+    ordering_fields = ['price',]
 
 
-# class MotorListSearchView(generics.ListAPIView):
+# class MotorSearchView(generics.ListAPIView):
 #     queryset = Motor.objects.all()
 #     serializer_class = MotorSerializer
-#     filter_backends = (DjangoFilterBackend,filters.SearchFilter)
-#     filterset_class = MotorFilter
-#     filterset_fields = ['name','available from', 'available_end']
+    
 
 
-
-class MotorDetailView(generics.RetrieveUpdateDestroyAPIView): 
-    queryset = Motor.objects.all()
-    serializer_class = MotorDetailSerializer
+# class MotorDetailView(generics.RetrieveUpdateDestroyAPIView): 
+#     queryset = Motor.objects.all()
+#     serializer_class = MotorDetailSerializer
 
 
 class BrandListView(generics.ListCreateAPIView): 

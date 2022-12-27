@@ -11,9 +11,9 @@ class MotorSerializer(serializers.ModelSerializer):
         fields = ['id', 'brand', 'owner', 'name', 'price', 'year', 'available_from', 'available_end',
                     'pick_up_location', 'drop_off_location', 'pictures']
 
-    # def __init__(self, *args, **kwargs):
-    #     super(MotorSerializer, self).__init__(*args, **kwargs)  
-    #     # self.Meta.depth = 1
+    def __init__(self, *args, **kwargs):
+        super(MotorSerializer, self).__init__(*args, **kwargs)  
+        # self.Meta.depth = 1
 
 
 # Vehicle detail serializer
