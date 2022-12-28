@@ -1,5 +1,6 @@
 import toyota from "../toyota.jpg";
 import background from "../steering.jpg";
+import logo from '../logo.svg';
 function Home () {
     return ( 
     <main>  
@@ -73,6 +74,72 @@ function Home () {
         <div className="container mt-5 mb-5">
             <h3>Check out these brands</h3>
         </div>
+
+        <section className='container mt-4'> 
+            {/* {Latest Categories} */}
+            <h4 className='mb-4'>All Brands</h4> 
+            <div class="card">
+                <div class="card-body"> 
+                    <div className="how container mb-4'">
+                        <div className="owl-carousel owl-theme">
+                            <div className="item">
+                                <div className="card shadow">
+                                    <figure className="figure">
+                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
+                                        {/* <img src="https://loremflickr.com/600/200?random=1"  */}
+                                            {/* // class="figure-img img-fluid w-100" /> */}
+                                        {/* <figcaption class="figure-caption">
+                                            SIGN UP
+                                        </figcaption> */}
+                                    </figure>
+                                </div>    
+                            </div>
+                            <div className="item">
+                                <div className="card shadow">
+                                    <figure className="figure">
+                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
+                                            {/* <img src="https://loremflickr.com/600/200?random=1"  */}
+                                                {/* // class="figure-img img-fluid w-100" /> */}
+                                            {/* <figcaption class="figure-caption">
+                                                SIGN UP
+                                            </figcaption> */}
+                                    </figure>
+                                </div>     
+                            </div>
+                            <div className="item">
+                                <div className="card shadow">
+                                    <figure className="figure">
+                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
+                                            {/* <img src="https://loremflickr.com/600/200?random=1"  */}
+                                                {/* // class="figure-img img-fluid w-100" /> */}
+                                            {/* <figcaption class="figure-caption">
+                                                SIGN UP
+                                            </figcaption> */}
+                                    </figure>
+                                </div>    
+                            </div>
+                            <div className="item">
+                                <div className="card shadow">
+                                    <figure className="figure">
+                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
+                                            {/* <img src="https://loremflickr.com/600/200?random=1"  */}
+                                                {/* // class="figure-img img-fluid w-100" /> */}
+                                            {/* <figcaption class="figure-caption">
+                                                SIGN UP
+                                            </figcaption> */}
+                                    </figure>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </section>        
+
+
+
+
+
 
         <div className='container mt-5'> 
         {/* {Latest Brands} */}   
