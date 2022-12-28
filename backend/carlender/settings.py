@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@ech*7iicbaw2rmka#up%818dbm+yor%z)+q^kwh^!%u=xwag7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,16 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',   
     'django_filters',
-    'crispy_forms',    
+    'crispy_forms',      
     'imagekit',
     'carowner',
     'vehicle',
     'customer',
-] 
+    'corsheaders',
+]   
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -104,11 +106,11 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
         
         # 'rest_framework.authentication.SessionAuthentication',
-    ],
+    # ],
     # 'DEFAULT_AUTHENTICATION_CLASSES': [
     #     'rest_framework_simplejwt.authentication.JWTAuthentication',
     # ]
@@ -117,6 +119,10 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 1
 }
+
+
+CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
+# CORS_ALLOW_ALL_ORIGINS: True
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

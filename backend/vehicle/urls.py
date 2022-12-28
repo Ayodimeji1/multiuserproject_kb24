@@ -12,10 +12,11 @@ urlpatterns = [
     # path('vehicles/search/', views.MotorSearchView.as_view()),
     # path('vehicles/<int:pk>/', views.MotorDetailView.as_view()), 
     path('brands/', views.BrandListView.as_view()), 
+    path('brands/<int:pk>/', views.BrandDetailView.as_view()), 
     path('bookings/', views.BookingListView.as_view()),
     # path('bookings/<int:pk>/', views.BookingDetailView.as_view()), 
     # path('bookingitems/', views.BookingItemsListView.as_view()),
-    path('bookingitems/<int:pk>/', views.BookingItemsDetailView.as_view()), 
+    path('bookingitems/<int:pk>/', views.BookingItemsDetailView.as_view()),  
 
 ]
 
