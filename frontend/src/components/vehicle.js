@@ -37,12 +37,12 @@ function Vehicle (props) {
         
         <div className='col-13 col-md-3 mb-4'>
             <div className="card shadow">
-                <Link to='/vehicles/:vehicle_slug/:vehicle_id'>                
+                <Link to={`/vehicles/${props.vehicle.name}/${props.vehicle.id}`}>                
                     <div className="card-body">
                         <img src={props.vehicle.pictures} className="card-img-top" alt="..."></img>
                     </div>
                     <div className='card-footer'>
-                        <h5 className="card-title"><Link to='/vehicles/:vehicle_slug/:vehicle_id'>{props.vehicle.name}</Link></h5>
+                        <h5 className="card-title"><Link to={`/vehicles/${props.vehicle.name}/${props.vehicle.id}`}>{props.vehicle.name}</Link></h5>
                         <h5 className="card-title">₦{props.vehicle.price}</h5>
                         <button title='Add to Wishlist' className='btn btn-danger btn-sm ms-1'>
                             <i className="fa-solid fa-heart"></i>

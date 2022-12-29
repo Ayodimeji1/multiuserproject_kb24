@@ -17,7 +17,7 @@ for y in range(2011, (datetime.datetime.now().year + 1)):
 
 
 
-class Brand(models.Model):
+class BrandVehicle(models.Model):
     name = models.CharField(max_length=100)
     pictures = models.ImageField(upload_to='images/brands_img', default=False)
     # picture_thumbnail = ImageSpecField(source='brands_img',
@@ -32,7 +32,7 @@ class Brand(models.Model):
 
 class Motor(models.Model):
     name = models.CharField(max_length=200)
-    brand = models.ForeignKey(Brand,on_delete=models.SET_NULL, null=True, related_name='brand_category') 
+    brand = models.ForeignKey(BrandVehicle,on_delete=models.SET_NULL, null=True, related_name='brand_vehicles') 
     owner = models.ForeignKey(Owner,on_delete=models.SET_NULL, null=True, related_name='owner')   
     year = models.IntegerField(('year'), choices=year_dropdown, default=datetime.datetime.now().year)
     price = models.FloatField()

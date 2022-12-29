@@ -14,7 +14,7 @@ function Header () {
                 <Link className="nav-link active" aria-current="page" href="#">Login</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" href="#">Link</Link>
+                <Link className="nav-link" to=''>Link</Link>
             </li>
         
             <li className="nav-item dropdown">

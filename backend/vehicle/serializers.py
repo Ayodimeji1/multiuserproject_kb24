@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Booking, BookingItems, Motor, Brand, MotorRating
+from .models import Booking, BookingItems, Motor, BrandVehicle, MotorRating
 
 
 
@@ -33,7 +33,7 @@ class MotorDetailSerializer(serializers.ModelSerializer):
 # Brand serializer
 class BrandSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Brand
+        model = BrandVehicle
         fields = ['id','name', 'pictures']
 
     # def __init__(self, *args, **kwargs):

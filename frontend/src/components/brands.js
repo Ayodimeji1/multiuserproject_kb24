@@ -3,8 +3,39 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';  
 import logo from '../logo.svg';
 import {Link} from "react-router-dom"
-import $ from 'jquery' 
+import {useState, useEffect} from 'react';
 function Brands () {
+    const baseUrl='http://127.0.0.1:8000/api'; 
+    const [brands, setBrands]=useState([]);
+    const [totalResult, setTotalResults]=useState(0);
+
+    useEffect (()=> {
+        fetchData(baseUrl+'/brands/');
+    },[]);
+
+    function fetchData(baseurl){
+        fetch(baseurl)
+        .then((response) => response.json())
+        .then((data) => { 
+            setBrands(data.results); 
+            setTotalResults(data.count);
+        });
+    }
+
+    function changeUrl(baseurl){ 
+        fetchData(baseurl);
+    } 
+
+    var links=[];
+    var limit=2;
+    var totalLinks=totalResult/limit;
+    for(let i=1; i<=totalLinks; i++){
+        links.push(<li class="page-item"><Link onClick={()=>changeUrl(baseUrl+`/brands/?page=${i}`)} to={`/brands/?page=${i}`} class="page-link">{i}</Link></li>)
+    };
+
+
+
+
     return(
         <section className='container mt-4'> 
             {/* {Latest Categories} */}
@@ -70,79 +101,32 @@ function Brands () {
 
 
 
-            {/* <div className='row'>
+            <div className='row'>
                 {/* {Category Box} */}
-                {/* <div className='col-13 col-md-3 mb-4'>
-                <div className="card shadow">
-                    <img src={logo} className="card-img-top" alt="..."></img>
-                    <div className="card-body">
-                    <h4 className="card-title"><Link to="/brands/python/1">Python</Link></h4>  
-                    </div>
-                    <div className='card-footer'>
-                    Product download: 23333            
-                    </div>
-                </div>
-                </div>  */}
-                {/* {Category box end} */}
-                {/* Category box} */}
-                {/* <div className='col-13 col-md-3 mb-4'>
-                <div className="card shadow">
-                    <img src={logo} className="card-img-top" alt="..."></img>
-                    <div className="card-body">
-                    <h4 className="card-title"><Link to="/">Category title</Link></h4>  
-                    </div>
-                    <div className='card-footer'>
-                    Product download: 23333            
-                    </div>
-                </div>
-                </div> */}
-                {/* {Category box end} */}
-                {/* Category box} */}
-                {/* <div className='col-13 col-md-3 mb-4'>
-                <div className="card shadow">
-                    <img src={logo} className="card-img-top" alt="..."></img>
-                    <div className="card-body">
-                    <h4 className="card-title"><Link to="/">Category title</Link></h4>  
-                    </div>
-                    <div className='card-footer'>
-                    Product download: 23333            
-                    </div>
-                </div>
-                </div> */}
-                {/* {Category box end} */}
-                {/* Category box} */}
-                {/* <div className='col-13 col-md-3 mb-4'>
-                <div className="card shadow">
-                    <img src={logo} className="card-img-top" alt="..."></img>
-                    <div className="card-body">
-                    <h4 className="card-title"><Link to="/">Category title</Link></h4>  
-                    </div>
-                    <div className='card-footer'>
-                    Product download: 23333            
-                    </div>
-                </div>
-                </div> */}
-                {/* {Category box end} */}
-            {/* </div>  */}
-            {/* {Latest Categories end}    */}
+                
+                {
+                    brands.map((brand)=> 
+                    <div className='col-13 col-md-3 mb-4'>
+                        <div className="card shadow">
+                            <img src={brand.pictures} className="card-img-top" alt={brand.name}></img>
+                            <div className="card-body">
+                            <h4 className="card-title"><Link to={`/brand/${brand.name}/${brand.id}`}>{brand.name}</Link></h4>  
+                            </div>
+                            <div className='card-footer'>
+                                Product download: 23333            
+                            </div>
+                        </div>
+                    </div>    
+                    )
+                }
+            
+            </div>
 
-            {/* <nav aria-label="Page navigation example">
+            <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-                </li>
+              {links}
             </ul>
-            </nav> */}
+            </nav>
     </section>
     )
 }   

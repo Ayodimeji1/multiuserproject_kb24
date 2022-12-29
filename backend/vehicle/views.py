@@ -1,4 +1,4 @@
-from .models import Booking, BookingItems, Motor, Brand, MotorRating
+from .models import Booking, BookingItems, Motor, BrandVehicle, MotorRating
 from .serializers import BookingItemsSerializer, BookingSerializer, MotorSerializer, MotorDetailSerializer, BrandSerializer, MotorRatingSerializer
 from rest_framework import generics, viewsets
 from django_filters import rest_framework as filters
@@ -26,6 +26,28 @@ class MotorListView(viewsets.ModelViewSet):
     filterset_class = MotorFilter
     ordering_fields = ['price',]
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        brand = self.request.GET['brand']
+        brand = BrandVehicle.objects.get(id=brand)
+        qs = qs.filter(brand=brand)
+        return qs 
+
+
+
+
+# class MotorBrandListView(generics.ListCreateAPIView):
+#     queryset = Motor.objects.all()
+#     serializer_class = MotorSerializer  
+
+#     def get_queryset(self):
+#         qs = super().get_queryset()
+#         brand = self.request.GET['brand']
+#         brand = BrandVehicle.objects.get(id=brand)
+#         qs = qs.filter(brand=brand)
+#         return qs 
+        
+
 
 # class MotorSearchView(generics.ListAPIView):
 #     queryset = Motor.objects.all()
@@ -33,18 +55,18 @@ class MotorListView(viewsets.ModelViewSet):
     
 
 
-# class MotorDetailView(generics.RetrieveUpdateDestroyAPIView): 
-#     queryset = Motor.objects.all()
-#     serializer_class = MotorDetailSerializer
+class MotorDetailView(generics.RetrieveUpdateDestroyAPIView): 
+    queryset = Motor.objects.all()
+    serializer_class = MotorDetailSerializer
 
 
 class BrandListView(generics.ListCreateAPIView): 
-    queryset = Brand.objects.all()
+    queryset = BrandVehicle.objects.all()
     serializer_class = BrandSerializer 
 
 
 class BrandDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Brand.objects.all()
+    queryset = BrandVehicle.objects.all()
     serializer_class = BrandSerializer
 
 
@@ -61,7 +83,7 @@ class BookingListView(generics.ListCreateAPIView):
 
 # BookingItems views
 # class BookingItemsListView(generics.ListCreateAPIView): 
-#     queryset = BookingItems.objects.all()
+#     queryset = BookingItems.objects.all() 
 #     serializer_class = BookingItemsSerializer
 
 
