@@ -1,43 +1,66 @@
 import { Link } from 'react-router-dom';
 import logo from '../logo.svg';
-// import Vehicle from './vehicle'; 
+import {useState, useEffect} from 'react';
+import { useParams } from "react-router-dom";
+import Vehicle from './vehicle'; 
 function VehicleDetail () {
+    const baseUrl='http://127.0.0.1:8000/api'; 
+    const [vehicleData, setvehicleData]=useState([]);
+    const [motorImages, setmotorImages]=useState([]);
+    const {vehicle_slug, vehicle_id} = useParams();
+
+    useEffect (()=> {
+        fetchData(baseUrl+'/vehicles/'+vehicle_id);
+    },[]);
+
+    function fetchData(baseurl){
+        fetch(baseurl)
+        .then((response) => response.json())
+        .then((data) => { 
+            setvehicleData(data); 
+            setmotorImages(data.motor_images);
+        });
+    }
+
+    console.log(motorImages)
+
+
+
     return (
         <section className="container mt-4">
             <div className="row">
                 <div className="col-4">    
                 <div id="vehicleThumbnailSlider" className="carousel carousel-dark slide carousel-fade" data-bs-ride="true">
                     <div className="carousel-indicators">
-                        <button type="button" data-bs-target="#vehicleThumbnailSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#vehicleThumbnailSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#vehicleThumbnailSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    {motorImages.map((img,index)=>{
+                        if(index === 0) {
+                            return <button type="button" data-bs-target="#vehicleThumbnailSlider" data-bs-slide-to={index} class="active" aria-current="true" aria-label="Slide 1"></button>
+                        }
+                        else{
+                            return <button type="button" data-bs-target="#vehicleThumbnailSlider" data-bs-slide-to={index} aria-label="Slide 2"></button>
+                        }
+                    })}                         
                     </div>
+    
                     <div className="carousel-inner">
-                        <div className="carousel-item active">
-                            <img src={logo} className="img-thumbnail mb-5" alt="..."></img>
-                        </div>
-                        <div className="carousel-item">
-                            <img src={logo} className="img-thumbnail mb-5" alt="..."></img>
-                        </div>
-                        <div className="carousel-item">
-                            <img src={logo} className="img-thumbnail mb-5" alt="..."></img>
-                        </div>
+                    {motorImages.map((img,index)=>{
+                        if(index === 0) {
+                            return <div className="carousel-item active">
+                                <img src={img.image} className="img-thumbnail mb-5" alt="..."></img>
+                            </div>}
+                            else{
+                                return <div className="carousel-item">
+                                    <img src={img.image} className="img-thumbnail mb-5" alt="..."></img>
+                                </div>
+                            }
+                    })}                                
                     </div>
                 </div>    
                 </div>
-
-
                 <div className="col-8">
-                    <h3>Vehicle Title</h3>
+                    <h3>{vehicleData.name}</h3>
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and scrambled it to make a type
-                        specimen book. It has survived not only five centuries, but also the leap into
-                        electronic typesetting, remaining essentially unchanged. It was popularised in
-                        the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.
+                        {vehicleData.year}
                     </p>
                     <h5 className="card-title">Price: N1,000.0</h5>
                     <p className="mt-3">

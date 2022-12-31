@@ -12,8 +12,8 @@ class Owner(models.Model):
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
     nin = models.BigIntegerField()
-    drivers_license = models.ImageField(upload_to='images/owner_license')
-    picture = models.ImageField(upload_to='images/owner_img', default=False)
+    drivers_license = models.ImageField(upload_to='owner_license')
+    picture = models.ImageField(upload_to='owner_img', default=False)
 
     def __str__(self):
         return self.user.username

@@ -23,7 +23,7 @@ function Vehicles () {
         fetchData(baseurl);
     } 
 
-    var links=[];
+    var links=[]; 
     var limit=1;
     var totalLinks=totalResult/limit;
     for(let i=1; i<=totalLinks; i++){

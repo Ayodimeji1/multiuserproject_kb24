@@ -110,7 +110,7 @@ function Brands () {
                         <div className="card shadow">
                             <img src={brand.pictures} className="card-img-top" alt={brand.name}></img>
                             <div className="card-body">
-                            <h4 className="card-title"><Link to={`/brand/${brand.name}/${brand.id}`}>{brand.name}</Link></h4>  
+                            <h4 className="card-title"><Link to={`/brands/${brand.name}/${brand.id}/`}>{brand.name}</Link></h4>  
                             </div>
                             <div className='card-footer'>
                                 Product download: 23333            

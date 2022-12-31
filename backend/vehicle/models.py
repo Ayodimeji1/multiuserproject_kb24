@@ -19,11 +19,7 @@ for y in range(2011, (datetime.datetime.now().year + 1)):
 
 class BrandVehicle(models.Model):
     name = models.CharField(max_length=100)
-    pictures = models.ImageField(upload_to='images/brands_img', default=False)
-    # picture_thumbnail = ImageSpecField(source='brands_img',
-    #                                   processors=[ResizeToFill(100, 50)],
-    #                                   format='JPEG',
-    #                                   options={'quality': 80})
+    pictures = models.ImageField(upload_to='brands_img', default=False)
 
     def __str__(self):
         return self.name
@@ -40,7 +36,7 @@ class Motor(models.Model):
     available_end = models.DateTimeField(auto_now=False, auto_now_add=False)
     pick_up_location = models.CharField(max_length=200)   
     drop_off_location = models.CharField(max_length=200)
-    pictures = models.ImageField(upload_to='images/motors_img')
+    # pictures = models.ImageField(upload_to='motors_img')
     
 
     def __str__(self):
@@ -49,7 +45,12 @@ class Motor(models.Model):
 
 
 
+class MotorImage(models.Model):
+    motor = models.ForeignKey(Motor, on_delete=models.CASCADE, related_name='motor_images')   
+    image = models.ImageField(upload_to='motors_img', null=True)
 
+    def __str__(self):
+        return self.image.url 
 
 
 

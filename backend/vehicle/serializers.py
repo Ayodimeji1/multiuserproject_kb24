@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Booking, BookingItems, Motor, BrandVehicle, MotorRating
+from .models import Booking, BookingItems, Motor, MotorImage, BrandVehicle, MotorRating
 
 
 
@@ -9,24 +9,42 @@ class MotorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Motor
         fields = ['id', 'brand', 'owner', 'name', 'price', 'year', 'available_from', 'available_end',
-                    'pick_up_location', 'drop_off_location', 'pictures']
+                    'pick_up_location', 'drop_off_location']
 
     def __init__(self, *args, **kwargs):
         super(MotorSerializer, self).__init__(*args, **kwargs)  
         # self.Meta.depth = 1
 
 
+
+
+# Motor images serializer
+class MotorImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MotorImage
+        fields = ['id', 'motor', 'image']
+
+  
+
+  
+
 # Vehicle detail serializer
 class MotorDetailSerializer(serializers.ModelSerializer):
     motor_ratings = serializers.StringRelatedField(many=True, read_only=True) 
+    motor_images = MotorImageSerializer(many=True, read_only=True) 
     class Meta:
+        many =True
         model = Motor
         fields = ['id', 'brand', 'owner', 'name', 'price', 'year', 'available_from', 'available_end',
-                    'pick_up_location', 'drop_off_location', 'pictures', 'motor_ratings']
+                    'pick_up_location', 'drop_off_location', 'motor_ratings', 'motor_images' ]
 
     def __init__(self, *args, **kwargs):
         super(MotorDetailSerializer, self).__init__(*args, **kwargs)  
         # self.Meta.depth = 1
+
+
+
+
 
   
 

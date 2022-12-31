@@ -2,6 +2,8 @@ from .models import Booking, BookingItems, Motor, BrandVehicle, MotorRating
 from .serializers import BookingItemsSerializer, BookingSerializer, MotorSerializer, MotorDetailSerializer, BrandSerializer, MotorRatingSerializer
 from rest_framework import generics, viewsets
 from django_filters import rest_framework as filters
+
+from vehicle import models
 # from rest_framework import filters 
 
 # from django_filters import FilterSet, DateTimeFilter
@@ -19,12 +21,10 @@ class MotorFilter(filters.FilterSet):
         fields = ['name'] 
 
 
-class MotorListView(viewsets.ModelViewSet):
+class MotorBrandListView(viewsets.ModelViewSet): 
     queryset = Motor.objects.all()
     serializer_class = MotorSerializer 
-    filter_backends = (filters.DjangoFilterBackend,)   
-    filterset_class = MotorFilter
-    ordering_fields = ['price',]
+    
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -32,27 +32,19 @@ class MotorListView(viewsets.ModelViewSet):
         brand = BrandVehicle.objects.get(id=brand)
         qs = qs.filter(brand=brand)
         return qs 
+   
 
 
 
 
-# class MotorBrandListView(generics.ListCreateAPIView):
-#     queryset = Motor.objects.all()
-#     serializer_class = MotorSerializer  
+class MotorListView(generics.ListCreateAPIView):
+    queryset = Motor.objects.all()
+    serializer_class = MotorSerializer
+    filter_backends = (filters.DjangoFilterBackend,)   
+    filterset_class = MotorFilter
+    ordering_fields = ['price',]
 
-#     def get_queryset(self):
-#         qs = super().get_queryset()
-#         brand = self.request.GET['brand']
-#         brand = BrandVehicle.objects.get(id=brand)
-#         qs = qs.filter(brand=brand)
-#         return qs 
         
-
-
-# class MotorSearchView(generics.ListAPIView):
-#     queryset = Motor.objects.all()
-#     serializer_class = MotorSerializer
-    
 
 
 class MotorDetailView(generics.RetrieveUpdateDestroyAPIView): 
@@ -60,9 +52,12 @@ class MotorDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = MotorDetailSerializer
 
 
+
+
 class BrandListView(generics.ListCreateAPIView): 
     queryset = BrandVehicle.objects.all()
     serializer_class = BrandSerializer 
+
 
 
 class BrandDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -112,3 +107,9 @@ class MotorRatingViewsets(viewsets.ModelViewSet):
 #     class Meta:
 #         model = Motor
 #         fields = ('available_from', 'available_end')    
+
+
+
+# class MotorSearchView(generics.ListAPIView):
+#     queryset = Motor.objects.all()
+#     serializer_class = MotorSerializer

@@ -7,10 +7,10 @@ function BrandVehicles () {
     const [vehicles, setVehicles]=useState([]);
     const [totalResult, setTotalResults]=useState(0);
     const {brand_slug, brand_id} = useParams();
-    console.log(brand_id);
+    // console.log(brand_id);
 
     useEffect (()=> {
-        fetchData(baseUrl+'/vehicles/?brand='+brand_id);
+        fetchData(baseUrl+'/vehicle/?brand='+brand_id);
     },[]);
 
     function fetchData(baseurl){
@@ -30,7 +30,7 @@ function BrandVehicles () {
     var limit=2; 
     var totalLinks=totalResult/limit;
     for(let i=1; i<=totalLinks; i++){
-        links.push(<li class="page-item"><Link onClick={()=>changeUrl(baseUrl+`/vehicles/?brand=${brand_id}&page=${i}`)} to={`/brand/${brand_slug}/${brand_id}/?page=${i}`} class="page-link">{i}</Link></li>)
+        links.push(<li class="page-item"><Link onClick={()=>changeUrl(baseUrl+`/vehicle/?brand=${brand_id}&page=${i}`)} to={`/brand/${brand_slug}/${brand_id}/?page=${i}`} class="page-link">{i}</Link></li>)
     };
     
     return(

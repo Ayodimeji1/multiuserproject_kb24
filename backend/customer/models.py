@@ -12,9 +12,9 @@ class Customer(models.Model):
     street = models.TextField()
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
-    govt_issued_id = models.ImageField(upload_to='images/customerid_img')
-    drivers_license = models.ImageField(upload_to='images/customerlicense_img')
-    picture = models.ImageField(upload_to='images/customer_img', default=False)
+    govt_issued_id = models.ImageField(upload_to='customerid_img')
+    drivers_license = models.ImageField(upload_to='customerlicense_img')
+    picture = models.ImageField(upload_to='customer_img', default=False)
 
     def __str__(self):
         return self.user.username
