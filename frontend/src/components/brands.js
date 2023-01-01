@@ -1,9 +1,14 @@
-import OwlCarousel from 'react-owl-carousel';  
-import 'owl.carousel/dist/assets/owl.carousel.css';  
-import 'owl.carousel/dist/assets/owl.theme.default.css';  
+import React from 'react';
 import logo from '../logo.svg';
-import {Link} from "react-router-dom"
 import {useState, useEffect} from 'react';
+import {Link} from "react-router-dom"
+
+//Owl Carousel Libraries and Module
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+
+//Owl Carousel Settings
 function Brands () {
     const baseUrl='http://127.0.0.1:8000/api'; 
     const [brands, setBrands]=useState([]);
@@ -27,112 +32,72 @@ function Brands () {
     } 
 
     var links=[];
-    var limit=2;
+    var limit=6;
     var totalLinks=totalResult/limit;
     for(let i=1; i<=totalLinks; i++){
         links.push(<li class="page-item"><Link onClick={()=>changeUrl(baseUrl+`/brands/?page=${i}`)} to={`/brands/?page=${i}`} class="page-link">{i}</Link></li>)
     };
 
 
+    const options = {
+    margin: 30,
+    responsiveClass: true,
+    nav: false,
+    autoplay: true,
+    loop: false,
+    // navText: ["Prev", "Next"],
+    smartSpeed: 500,
+    responsive: {
+        0:{
+            items:1
+        },
+        768:{
+            items:2
+        },
+        992:{
+            items:4
+        }
+    },
+    };
+    // class Brands extends React.Component {
+    // render() {
+   
 
-
-    return(
-        <section className='container mt-4'> 
-            {/* {Latest Categories} */}
-            <h4 className='mb-4'>All Brands</h4> 
-            <div class="card">
-                <div class="card-body"> 
-                    <div className="how container mb-4'">
-                        <div className="owl-carousel owl-theme">
-                            <div className="item">
-                                <div className="card shadow">
-                                    <figure className="figure">
-                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
-                                        {/* <img src="https://loremflickr.com/600/200?random=1"  */}
-                                            {/* // class="figure-img img-fluid w-100" /> */}
-                                        {/* <figcaption class="figure-caption">
-                                            SIGN UP
-                                        </figcaption> */}
-                                    </figure>
-                                </div>    
-                            </div>
-                            <div className="item">
-                                <div className="card shadow">
-                                    <figure className="figure">
-                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
-                                            {/* <img src="https://loremflickr.com/600/200?random=1"  */}
-                                                {/* // class="figure-img img-fluid w-100" /> */}
-                                            {/* <figcaption class="figure-caption">
-                                                SIGN UP
-                                            </figcaption> */}
-                                    </figure>
-                                </div>     
-                            </div>
-                            <div className="item">
-                                <div className="card shadow">
-                                    <figure className="figure">
-                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
-                                            {/* <img src="https://loremflickr.com/600/200?random=1"  */}
-                                                {/* // class="figure-img img-fluid w-100" /> */}
-                                            {/* <figcaption class="figure-caption">
-                                                SIGN UP
-                                            </figcaption> */}
-                                    </figure>
-                                </div>    
-                            </div>
-                            <div className="item">
-                                <div className="card shadow">
-                                    <figure className="figure">
-                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
-                                            {/* <img src="https://loremflickr.com/600/200?random=1"  */}
-                                                {/* // class="figure-img img-fluid w-100" /> */}
-                                            {/* <figcaption class="figure-caption">
-                                                SIGN UP
-                                            </figcaption> */}
-                                    </figure>
-                                </div>
-                            </div>    
-                        </div>
-                    </div>
-                </div>    
-            </div>
-            
-            
-
-
-
-            <div className='row'>
-                {/* {Category Box} */}
-                
-                {
+    return (
+        <>
+        <div className='mx-auto'>
+        <h3 className='text-center'>Brands</h3>
+            <div className='mx-auto'>        
+                <OwlCarousel className="slider-items owl-carousel" {...options}>
+                    {
                     brands.map((brand)=> 
-                    <div className='col-13 col-md-3 mb-4'>
-                        <div className="card shadow">
-                            <img src={brand.pictures} className="card-img-top" alt={brand.name}></img>
-                            <div className="card-body">
-                            <h4 className="card-title"><Link to={`/brands/${brand.name}/${brand.id}/`}>{brand.name}</Link></h4>  
-                            </div>
-                            <div className='card-footer'>
-                                Product download: 23333            
-                            </div>
+                    <Link  style={{textDecoration: 'none'}} to={`/brands/${brand.name}/${brand.id}/`}>
+                    <div class="card-body rounded-top">                                                                                                                                                         
+                        <div className="shadow">
+                            <img src={brand.pictures} className="img-fluid rounded-top" alt="..."></img>                                
                         </div>
-                    </div>    
-                    )
-                }
-            
+                        <div className="card shadow text-center rounded-0">
+                            <h4><Link style={{textDecoration: 'none',color:'black'}} to={`/brands/${brand.name}/${brand.id}/`}>{brand.name}</Link></h4>  
+                        </div>           
+                    </div></Link>                 
+                        )
+                    }    
+                </OwlCarousel>
             </div>
+        </div>
 
+        <div>
             <nav aria-label="Page navigation example">
             <ul class="pagination">
-              {links}
+            {links}
             </ul>
             </nav>
-    </section>
-    )
-}   
+        </div>
+        </>
        
-export default Brands
+    )
+};
+// }
+// }
 
-
-
-
+export default Brands;

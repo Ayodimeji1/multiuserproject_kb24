@@ -37,7 +37,7 @@ class MotorBrandListView(viewsets.ModelViewSet):
 
 
 
-class MotorListView(generics.ListCreateAPIView):
+class MotorListView(generics.ListCreateAPIView): 
     queryset = Motor.objects.all()
     serializer_class = MotorSerializer
     filter_backends = (filters.DjangoFilterBackend,)   

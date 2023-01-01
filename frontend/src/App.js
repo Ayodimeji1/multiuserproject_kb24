@@ -9,6 +9,7 @@ import Vehicles from './components/vehicles';
 import VehicleDetail from './components/vehicle_detail';
 import Brands from './components/brands';
 import BrandVehicles from './components/brand_vehicles';
+import './components/brand.css';
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 
@@ -27,6 +28,8 @@ function App() {
     </>
   );
 }
+
+
 
 
 export default App;

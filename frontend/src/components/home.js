@@ -1,5 +1,5 @@
 import toyota from "../toyota.jpg";
-import background from "../steering.jpg";
+import background from "../steeringg.jpg";
 import logo from '../logo.svg';
 function Home () {
     return ( 

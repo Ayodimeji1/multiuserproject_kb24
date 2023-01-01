@@ -15,7 +15,7 @@ class MotorImagesInline(admin.StackedInline):
     model = MotorImage
 
 class MotorAdmin(admin.ModelAdmin):
-    # prepopulated_fields ={'slug':('name',)}   
+    # prepopulated_fields ={'slug':('name',)}    
     inlines = [
         MotorImagesInline,
     ] 
