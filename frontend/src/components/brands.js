@@ -65,26 +65,49 @@ function Brands () {
 
     return (
         <>
-        <div className='mx-auto'>
-        <h3 className='text-center'>Brands</h3>
-            <div className='mx-auto'>        
-                <OwlCarousel className="slider-items owl-carousel" {...options}>
-                    {
-                    brands.map((brand)=> 
-                    <Link  style={{textDecoration: 'none'}} to={`/brands/${brand.name}/${brand.id}/`}>
-                    <div class="card-body rounded-top">                                                                                                                                                         
-                        <div className="shadow">
-                            <img src={brand.pictures} className="img-fluid rounded-top" alt="..."></img>                                
+        {/* <div className='container'> */}
+            {/* <div className='row'> */}
+                <div className='col'>
+                    <div className='mx-auto'>
+                    <h3 className='text-center mt-3 mb-4'>Brands</h3>
+                        <div className='mx-auto'>        
+                            <OwlCarousel className="slider-items owl-carousel" {...options}>
+                                {
+                                brands.map((brand)=> 
+                                // <Link  style={{textDecoration: 'none'}} to={`/brands/${brand.name}/${brand.id}/`}>
+                                // <div class="card-body rounded-top">                                                                                                                                                         
+                                //     <div className="shadow">
+                                //         <img src={brand.pictures} className="img-fluid rounded-top" alt="..."></img>                                
+                                //     </div>
+                                //     <div className="card shadow text-center rounded-0">
+                                //         <h4><Link style={{textDecoration: 'none',color:'black'}} to={`/brands/${brand.name}/${brand.id}/`}>{brand.name}</Link></h4>  
+                                //     </div>           
+                                // </div></Link> 
+                                
+                                <div className="main-container">
+                                    <div className="post">
+                                        <div>
+                                        <Link  style={{textDecoration: 'none'}} to={`/brands/${brand.name}/${brand.id}/`}>
+                                            <div className="post-item">
+                                                <img className="thumbnail" src={brand.pictures} alt=""></img>
+                                                <div className="post-preview">
+                                                    <h5 className="post-title text-center"><Link style={{textDecoration: 'none',color:'black'}} to={`/brands/${brand.name}/${brand.id}/`}>{brand.name}</Link></h5>
+                            
+                                                </div>
+                                            </div>
+                                        </Link>    
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    )
+                                }    
+                            </OwlCarousel>
                         </div>
-                        <div className="card shadow text-center rounded-0">
-                            <h4><Link style={{textDecoration: 'none',color:'black'}} to={`/brands/${brand.name}/${brand.id}/`}>{brand.name}</Link></h4>  
-                        </div>           
-                    </div></Link>                 
-                        )
-                    }    
-                </OwlCarousel>
-            </div>
-        </div>
+                    </div>
+                </div>    
+            {/* </div>         */}
+        {/* </div> */}
 
         <div>
             <nav aria-label="Page navigation example">

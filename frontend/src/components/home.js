@@ -9,32 +9,7 @@ function Home () {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         width: '100vw',
-        height: '55vh'}}>
-            
-            {/* <div class="container">
-                <form action="" method="post">
-                    <div class="row align-items-center gy-5">
-                        <div className="input-group mb-3">
-                            <div className="col-md-auto col-12 p-3">
-                                <input type="text" className="form-control" placeholder="vehicle name" aria-label="vehicle name">                       
-                                </input>
-                            </div>
-                            <div className="col-md-auto col-12 p-3">
-                                <input className="form-control" type="datetime-local" id="meeting-time"
-                                    name="meeting-time" value="2018-06-12T19:30"
-                                    min="2018-06-07T00:00" max="2018-06-14T00:00">
-                                </input>
-                            </div>
-                            <div className="col-md-auto col-12 p-3">
-                                <input className="form-control" type="datetime-local" id="meeting-time"
-                                    name="meeting-time" value="2018-06-12T19:30"
-                                    min="2018-06-07T00:00" max="2018-06-14T00:00">
-                                </input>
-                            </div>
-                        </div> 
-                    </div>         
-                </form>               
-            </div>  */}         
+        height: '55vh'}}>         
         </div>
 
 
@@ -75,66 +50,7 @@ function Home () {
             <h3>Check out these brands</h3>
         </div>
 
-        <section className='container mt-4'> 
-            {/* {Latest Categories} */}
-            <h4 className='mb-4'>All Brands</h4> 
-            <div class="card">
-                <div class="card-body"> 
-                    <div className="how container mb-4'">
-                        <div className="owl-carousel owl-theme">
-                            <div className="item">
-                                <div className="card shadow">
-                                    <figure className="figure">
-                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
-                                        {/* <img src="https://loremflickr.com/600/200?random=1"  */}
-                                            {/* // class="figure-img img-fluid w-100" /> */}
-                                        {/* <figcaption class="figure-caption">
-                                            SIGN UP
-                                        </figcaption> */}
-                                    </figure>
-                                </div>    
-                            </div>
-                            <div className="item">
-                                <div className="card shadow">
-                                    <figure className="figure">
-                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
-                                            {/* <img src="https://loremflickr.com/600/200?random=1"  */}
-                                                {/* // class="figure-img img-fluid w-100" /> */}
-                                            {/* <figcaption class="figure-caption">
-                                                SIGN UP
-                                            </figcaption> */}
-                                    </figure>
-                                </div>     
-                            </div>
-                            <div className="item">
-                                <div className="card shadow">
-                                    <figure className="figure">
-                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
-                                            {/* <img src="https://loremflickr.com/600/200?random=1"  */}
-                                                {/* // class="figure-img img-fluid w-100" /> */}
-                                            {/* <figcaption class="figure-caption">
-                                                SIGN UP
-                                            </figcaption> */}
-                                    </figure>
-                                </div>    
-                            </div>
-                            <div className="item">
-                                <div className="card shadow">
-                                    <figure className="figure">
-                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
-                                            {/* <img src="https://loremflickr.com/600/200?random=1"  */}
-                                                {/* // class="figure-img img-fluid w-100" /> */}
-                                            {/* <figcaption class="figure-caption">
-                                                SIGN UP
-                                            </figcaption> */}
-                                    </figure>
-                                </div>
-                            </div>    
-                        </div>
-                    </div>
-                </div>    
-            </div>
-        </section>        
+        
 
 
 

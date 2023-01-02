@@ -9,7 +9,7 @@ class MotorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Motor
         fields = ['id', 'brand', 'owner', 'name', 'price', 'year', 'available_from', 'available_end',
-                    'pick_up_location', 'drop_off_location']
+                    'pick_up_location', 'drop_off_location', 'pictures'] 
 
     def __init__(self, *args, **kwargs):
         super(MotorSerializer, self).__init__(*args, **kwargs)  

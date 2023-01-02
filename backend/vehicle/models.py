@@ -2,6 +2,7 @@ import datetime
 from django.db import models
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
+# from vehicle.admin import MotorImagesInline
 
 from customer.models import Customer
 from carowner.models import Owner
@@ -36,7 +37,8 @@ class Motor(models.Model):
     available_end = models.DateTimeField(auto_now=False, auto_now_add=False)
     pick_up_location = models.CharField(max_length=200)   
     drop_off_location = models.CharField(max_length=200)
-    # pictures = models.ImageField(upload_to='motors_img')
+    pictures = models.ImageField(upload_to='motors_img', null=True )
+    # pictures = models.ForeignKey(MotorImagesInline, on_delete=models.SET_NULL, related_name='motor_images')
     
 
     def __str__(self):
@@ -51,6 +53,7 @@ class MotorImage(models.Model):
 
     def __str__(self):
         return self.image.url 
+
 
 
 

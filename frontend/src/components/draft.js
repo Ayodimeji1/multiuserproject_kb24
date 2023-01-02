@@ -157,3 +157,67 @@ function VehicleDetail () {
 }
 
 export default VehicleDetail
+
+
+
+
+<section className='container mt-4'> 
+            {/* {Latest Categories} */}
+            <h4 className='mb-4'>All Brands</h4> 
+            <div class="card">
+                <div class="card-body"> 
+                    <div className="how container mb-4'">
+                        <div className="owl-carousel owl-theme">
+                            <div className="item">
+                                <div className="card shadow">
+                                    <figure className="figure">
+                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
+                                        {/* <img src="https://loremflickr.com/600/200?random=1"  */}
+                                            {/* // class="figure-img img-fluid w-100" /> */}
+                                        {/* <figcaption class="figure-caption">
+                                            SIGN UP
+                                        </figcaption> */}
+                                    </figure>
+                                </div>    
+                            </div>
+                            <div className="item">
+                                <div className="card shadow">
+                                    <figure className="figure">
+                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
+                                            {/* <img src="https://loremflickr.com/600/200?random=1"  */}
+                                                {/* // class="figure-img img-fluid w-100" /> */}
+                                            {/* <figcaption class="figure-caption">
+                                                SIGN UP
+                                            </figcaption> */}
+                                    </figure>
+                                </div>     
+                            </div>
+                            <div className="item">
+                                <div className="card shadow">
+                                    <figure className="figure">
+                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
+                                            {/* <img src="https://loremflickr.com/600/200?random=1"  */}
+                                                {/* // class="figure-img img-fluid w-100" /> */}
+                                            {/* <figcaption class="figure-caption">
+                                                SIGN UP
+                                            </figcaption> */}
+                                    </figure>
+                                </div>    
+                            </div>
+                            <div className="item">
+                                <div className="card shadow">
+                                    <figure className="figure">
+                                        <img src={logo} className="figure-img img-fluid w-100" alt="..."></img>
+                                            {/* <img src="https://loremflickr.com/600/200?random=1"  */}
+                                                {/* // class="figure-img img-fluid w-100" /> */}
+                                            {/* <figcaption class="figure-caption">
+                                                SIGN UP
+                                            </figcaption> */}
+                                    </figure>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </section>        

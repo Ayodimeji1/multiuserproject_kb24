@@ -194,3 +194,159 @@
     visibility: visible;
   }
 }
+
+/* rating and wishlist */
+
+body{
+  background-color:#eef3f4;    
+  }
+  
+  .height-100{
+      height:100vh;
+  }
+  
+  .card{
+      width:230px;
+      border:none;
+      height:280px;
+  }
+  
+  .ratings{
+      margin-right:5px;
+  }
+  
+  .ratings i{
+      
+      color:#cecece;
+      font-size:32px;
+  }
+  
+  .rating-color{
+      color:#fbc634 !important;
+  }
+  
+  .review-count{
+      font-weight:400;
+      margin-bottom:2px;
+      font-size:24px !important;
+  }
+  
+  .small-ratings i{
+    color:#cecece;   
+  }
+  
+  .review-stat{
+      font-weight:300;
+      font-size:18px;
+      margin-bottom:2px;
+  }
+
+
+
+  /* Vehicle detail grid */
+
+
+  *, *:after, *:before{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .parent {
+    /* background: #888888;   */
+    padding: 20px;   
+     
+  }  
+  
+  .parent:after
+  {
+    clear: both;
+    content: "";
+    display: block;
+  }
+      
+  
+  .column {
+    display: block;
+    float: left;
+    width: 100%;
+    color: black;
+    padding: 10px;
+    font-family: Arial;
+    /* font-size: 45px; */
+  }
+  
+  /* .main {
+    background: #E6E6E3;
+    border: solid;
+    border-color: #1A4668;
+    border-style: groove;
+    border: 1px;
+  } */
+  /* .sidebar {
+    background: #ee7000;
+  } */
+  
+  @media only screen and (min-width: 641px){
+    .column {
+      width: 50%;
+    }
+  }
+  
+  @media only screen and (min-width: 1025px){
+    .main {
+      width: 50%;
+    }
+    .sidebar {
+      width: 50%;
+    }
+  }
+
+
+
+  /* Vehicle Grid CSS */
+  .card{
+    margin: 2% 0%;
+    object-fit: cover;
+  }
+  
+  .card-body{
+    margin: 0% 0% 0% 3%;
+    padding: 6% 0%;
+  }
+  
+
+
+/* WORKS SECTION */
+
+.post {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 320px);
+  gap: 20px;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+.post-item {
+  border: 1px solid var(--borderColor);
+  -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+  box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+}
+.thumbnail {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.post-preview {
+  background-color: #ffff;
+  padding: 10px;
+}
+.post-title {
+  color: black;
+  margin: 0;
+}
+.post-intro {
+  color: #4b5156;
+  font-size: 14px;
+}  

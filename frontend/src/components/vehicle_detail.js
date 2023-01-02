@@ -26,7 +26,7 @@ function VehicleDetail () {
 
     return (
         <>
-        <section>
+        <section style={{backgroundColor: '#E6E6E3',}}>
             <div id="vehicleThumbnailSlider" className="carousel carousel-dark slide carousel-fade mb-4" data-bs-ride="true">
                 <div className="carousel-indicators">
                     {motorImages.map((img, index) => {
@@ -43,12 +43,12 @@ function VehicleDetail () {
                     {motorImages.map((img, index) => {
                         if (index === 0) {
                             return <div className="carousel-item active">
-                                <img src={img.image} className="img-thumbnail mb-5" alt="..."></img>
+                                <img src={img.image} className="img-fluid mb-5" alt="..."></img>
                             </div>;
                         }
                         else {
                             return <div className="carousel-item">
-                                <img src={img.image} className="img-thumbnail mb-5" alt="..."></img>
+                                <img src={img.image} className="img-fluid mb-5" alt="..."></img>
                             </div>;
                         }
                     })}
@@ -57,54 +57,68 @@ function VehicleDetail () {
         </section>
 
 
-        <section className='mb-4'>
+        <section className='mb-4' style={{backgroundColor: '#E6E6E3',}}>
             <div className="container text-center">
-                <div className="row">
-                    <div className="col">
-                        <h4>{vehicleData.name}</h4>
-                        <h5>
-                            {vehicleData.year}
-                        </h5>
+            <div class="parent">
+                <div class="column main">
+                    <div className="col mt-3" align="center">
+                        <table>
+                            <tr>
+                                <td><h4>{vehicleData.name}</h4></td>
+                                <td className='px-2'><h4>{vehicleData.year}</h4></td>
+                            </tr>
+                        </table>
 
-                        <p className="mt-3">
-
-                        <Link title='Demo' target="_blank" className='btn btn-dark btn-sm'>
-                            <i className="fa-solid fa-cart-shopping"></i> Demo</Link>
-                        <button title='Add to Wishlist' className='btn btn-danger btn-sm ms-1'>
-                            <i className="fa-solid fa-heart"></i> Wishlist</button>
-                        </p>
+                        <div class="card p-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="ratings">
+                                    <i class="fa fa-star rating-color"></i>
+                                    <i class="fa fa-star rating-color"></i>
+                                    <i class="fa fa-star rating-color"></i>
+                                    <i class="fa fa-star rating-color"></i>
+                                    <i class="fa fa-star"></i>                                   
+                                    <Link title='' target="_blank" className='btn btn-success btn-sm'>
+                                        <i className="fa-solid fa-cart-shopping"></i> Wishlist</Link>                                   
+                                </div>                        
+                            </div>
+                        </div>    
                         <div className="Vehicletags">
                             <h5 className="mt-4">Tags</h5>
                             <p>
-                                <Link to="#" className="badge bg-secondary text-white me-1">BMW</Link>
-                                <Link to="#" className="badge bg-secondary text-white me-1">4WD</Link>
-                                <Link to="#" className="badge bg-secondary text-white">Automatic</Link>
+                                <Link style={{ textDecoration: 'none'}} to="#" className="badge bg-secondary text-white me-1">BMW</Link>
+                                <Link style={{ textDecoration: 'none'}} to="#" className="badge bg-secondary text-white me-1">4WD</Link>
+                                <Link style={{ textDecoration: 'none'}} to="#" className="badge bg-secondary text-white">Automatic</Link>
                             </p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col">
-                        <div class="col-lg-5 col-md-3 col-sm-12 p-0 mt-3">
-                        <p>Book from</p>
-                            <input className="form-control search-slt" type="datetime-local" id="book-from" placeholder="Enter Drop City"
-                                name="book-from" value="2023-01-01T00:30"
-                                min="2018-06-07T00:00" max="2024-06-14T00:00">
-                            </input>
-                        </div>
-                        <div class="col-lg-5 col-md-8 col-sm-12 p-0 mt-3">
-                        <p>Book to</p>
-                            <input className="form-control search-slt" type="datetime-local" id="book-to"
-                                name="book-to" value="2023-06-12T19:30"
-                                min="2022-01-01T00:00" max="2024-12-31T00:00">
-                            </input>
-                        </div>
+
+
+                <div class="column sidebar">
+                <div class="col" align="center">
+                    <div class="col-lg-5 col-md-8 col-sm-12 p-0 mt-3">
+                    <p>Book from</p>
+                        <input className="form-control search-slt" type="datetime-local" id="book-from" placeholder="Enter Drop City"
+                            name="book-from" value="2023-01-01T00:30"
+                            min="2018-06-07T00:00" max="2024-06-14T00:00">
+                        </input>
+                    </div>
+                    <div class="col-lg-5 col-md-8 col-sm-12 p-0 mt-3">
+                    <p>Book to</p>
+                        <input className="form-control search-slt" type="datetime-local" id="book-to"
+                            name="book-to" value="2023-06-12T19:30"
+                            min="2022-01-01T00:00" max="2024-12-31T00:00">
+                        </input>
                     </div>
                 </div>
+                </div>
+            </div>
             </div> 
         </section> 
 
-        <h4 className='mt-5 mb-3 text-center'>Related Vehicles</h4>
-        <div id="vehicleThumbnailSlider" className="carousel carousel-dark slide bg-light" data-bs-ride="true">
+        <h4 className='mt-5 mb-3 text-center' >Related Vehicles</h4>
+        <div style={{backgroundColor: '#E6E6E3',}} id="vehicleThumbnailSlider" className="carousel carousel-dark slide bg-light" data-bs-ride="true">
             <div className="carousel-indicators">
                 <button type="button" data-bs-target="#vehicleThumbnailSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#vehicleThumbnailSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>

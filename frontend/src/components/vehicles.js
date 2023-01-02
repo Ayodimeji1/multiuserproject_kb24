@@ -24,27 +24,31 @@ function Vehicles () {
     } 
 
     var links=[]; 
-    var limit=1;
+    var limit=3;
     var totalLinks=totalResult/limit;
     for(let i=1; i<=totalLinks; i++){
         links.push(<li class="page-item"><Link onClick={()=>changeUrl(baseUrl+`/vehicles/?page=${i}`)} to={`/vehicles/?page=${i}`} class="page-link">{i}</Link></li>)
     };
     
     return(
-        <section className='container mt-4'> 
-           <h4 className='mb-4'>Vehicles</h4>     
-            <div className='row'>
+        <>
+        <h4 className='mt-4 mb-4 text-center'>Vehicles</h4>   
+        {/* <div className='container mt-4'>              */}
+            {/* <div className='row'> */}
+                {/* <div> */}
                 {
                     vehicles.map((vehicle)=> <Vehicle vehicle={vehicle}/>)
                 }
-            </div>    
+                {/* </div>  */}
+            {/* </div>    */}
                
-            <nav aria-label="Page navigation example">
+            <nav aria-label="Page navigation example" align='center'>
             <ul className="pagination">
                 {links}
             </ul>
             </nav>
-        </section>
+        {/* </div>     */}
+        </>
     )
 }            
 export default Vehicles
