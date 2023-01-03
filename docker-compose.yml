@@ -1,0 +1,42 @@
+version: '3.17.0'
+
+services:
+  db:
+    image: postgres
+    ports:
+      -'5432:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: lender
+      POSTGRES_PASSWORD: $$ayodimeji22
+    volumes:
+      - ./data/db:/var/lib/postgresql/data  
+  backend:
+    build: 
+      context: ./backend
+    command: gunicorn core.wsgi --bind 0.0.0.0:8000
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: lender
+      POSTGRES_PASSWORD: $$ayodimeji22  
+    ports:
+      -"8000:8000"
+    depends_on:
+      - db
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      -'3000:3000'  
+    volumes:
+        - lender_build:/frontend/build
+  ngnix:
+    image: ngnix:latest 
+    ports:
+      -80:8080   
+    volumes:
+      - ./ngnix/ngnix-setup.conf:/etc/conf.d/default.conf.ro 
+      - lender_build:/var/www/frontend
+volume:
+  lender_build
+      
