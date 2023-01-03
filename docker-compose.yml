@@ -2,15 +2,16 @@ version: '3.17.0'
 
 services:
   db:
-    image: postgres
-    ports:
-      -'5432:5432'
+    image: postgres:15.1-alpine
+    restart: always   
     environment:
       POSTGRES_USER: postgres
       POSTGRES_DB: lender
       POSTGRES_PASSWORD: $$ayodimeji22
     volumes:
       - ./data/db:/var/lib/postgresql/data  
+    ports:
+      - "5432:5432"
   backend:
     build: 
       context: ./backend
@@ -20,23 +21,24 @@ services:
       POSTGRES_DB: lender
       POSTGRES_PASSWORD: $$ayodimeji22  
     ports:
-      -"8000:8000"
+      - "8000:8000"
     depends_on:
       - db
   frontend:
     build:
-      context: ./frontend
-    ports:
-      -'3000:3000'  
+      context: ./frontend  
     volumes:
         - lender_build:/frontend/build
   ngnix:
     image: ngnix:latest 
     ports:
-      -80:8080   
+      - 80:8080   
     volumes:
       - ./ngnix/ngnix-setup.conf:/etc/conf.d/default.conf.ro 
       - lender_build:/var/www/frontend
-volume:
-  lender_build
+    depends_on:
+      - backend
+      - frontend
+volumes:
+  lender_build:
       
