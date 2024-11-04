@@ -38,40 +38,60 @@ multiuserproject_kb24-main/
 ```
 cd backend
 ```
-3. Create and activate a virtual environment:
+2. Create and activate a virtual environment:
+```
 python -m venv env
 source env/bin/activate  #On Windows use 'env\Scripts\activate'
-4. Install the required Python packages:
+```
+3. Install the required Python packages:
+```
 pip install -r requirements.txt
-5. Run migrations to set up the database:
+```
+4. Run migrations to set up the database:
+```
 python manage.py migrate
-6. Create a superuser for accessing the Django admin:
+```
+5. Create a superuser for accessing the Django admin:
+```
 python manage.py createsuperuser
-7. Start the development server:
+```
+6. Start the development server:
+```
 python manage.py runserver
+```
 
 ### Frontend Setup
 1. Navigate to the frontend directory:
+```
 cd frontend
+```
 2. Install the required npm packages:
+```
 npm install
+```
 3. Start the React development server:
+```
 npm start
+```
 
 ### Docker Deployment
 Ensure Docker is installed and running.
 1. Build and run the application using Docker Compose:
+```
 docker-compose up --build
-
+```
 ## Usage
 Running the Application
-Frontend: Navigate to http://localhost:3000 in your browser to interact with the React frontend.
+Frontend: Navigate to http://localhost:3000 in your browser to interact with the React frontend.  
+
 Backend: Access the API at http://localhost:8000 and the Django admin at http://localhost:8000/admin.
 
 ## Dependencies
 ### Backend
-Python: Version 3.10+
-Django: Version 4.x
+Python: Version 3.10+  
+
+Django: Version 4.x  
+
 Django REST framework: For API development
 Pillow: For image handling
 Other Packages: As specified in requirements.txt
