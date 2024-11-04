@@ -11,6 +11,7 @@ Containerization: Docker support for simplified deployment.
 Nginx Setup: Configured NGINX for reverse proxy and load balancing.
 
 ## Project structure
+```
 multiuserproject_kb24-main/
 │
 ├── backend/                    # Backend services
@@ -29,6 +30,7 @@ multiuserproject_kb24-main/
 │
 └── ngnix/                      # NGINX configuration
     └── ngnix-setup.conf        # Configuration file for reverse proxy
+```
 
 ## Installation
 ### Backend Setup
