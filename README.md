@@ -2,12 +2,18 @@
 The Multiuser Vehicle Management project is a full-stack web application designed to support multi-user functionalities for managing vehicle listings and interactions. It offers features for car owners, customers, and administrators to manage vehicles, view details, and interact with the system seamlessly. It consists of a backend developed using Python, Django, Django Rest Framework and a frontend built with React.js, providing a seamless interface for users to interact with vehicle data.
 
 ## Features
-User Management: Separate modules for customers and vehicle owners.
-Vehicle Management: Manage vehicle details, including brand, model, and images.
-Data Serialization: Backend API using Django REST framework for efficient data transfer.
-Frontend Interface: A React-based user interface to search and view vehicles.
-Media Storage: Handling images for brands, vehicles, and user documents.
-Containerization: Docker support for simplified deployment.
+User Management: Separate modules for customers and vehicle owners.  
+
+Vehicle Management: Manage vehicle details, including brand, model, and images.  
+
+Data Serialization: Backend API using Django REST framework for efficient data transfer.  
+
+Frontend Interface: A React-based user interface to search and view vehicles.  
+
+Media Storage: Handling images for brands, vehicles, and user documents.  
+
+Containerization: Docker support for simplified deployment.  
+
 Nginx Setup: Configured NGINX for reverse proxy and load balancing.
 
 ## Project structure
