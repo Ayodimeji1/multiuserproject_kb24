@@ -35,17 +35,19 @@ multiuserproject_kb24-main/
 ## Installation
 ### Backend Setup
 1. Navigate to the backend directory:
+```
 cd backend
-2. Create and activate a virtual environment:
+```
+3. Create and activate a virtual environment:
 python -m venv env
 source env/bin/activate  #On Windows use 'env\Scripts\activate'
-3. Install the required Python packages:
+4. Install the required Python packages:
 pip install -r requirements.txt
-4. Run migrations to set up the database:
+5. Run migrations to set up the database:
 python manage.py migrate
-5. Create a superuser for accessing the Django admin:
+6. Create a superuser for accessing the Django admin:
 python manage.py createsuperuser
-6. Start the development server:
+7. Start the development server:
 python manage.py runserver
 
 ### Frontend Setup
